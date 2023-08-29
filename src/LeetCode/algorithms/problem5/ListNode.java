@@ -1,4 +1,5 @@
-package LeetCode.algorithms.problem2;
+package LeetCode.algorithms.problem5;
+
 
 public class ListNode {
     int val;
