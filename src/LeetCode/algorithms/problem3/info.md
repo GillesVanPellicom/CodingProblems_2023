@@ -1,5 +1,5 @@
 # Two Sum
-###### Difficulty: Easy
+###### Site Difficulty: Easy / Perceived difficulty: Very easy
 
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 

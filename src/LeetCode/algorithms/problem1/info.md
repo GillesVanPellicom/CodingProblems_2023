@@ -1,5 +1,5 @@
 # Longest Substring Without Repeating Characters
-###### Difficulty: Medium
+###### Site Difficulty: Medium / Perceived difficulty: Easy
 Given a string s, find the length of the longest
 substring
 without repeating characters.

@@ -1,6 +1,6 @@
 # Table of contents - LeetCode problems
 ### 1) Longest Substring Without Repeating Characters
-###### Site Difficulty: Medium/ Perceived difficulty: Easy
+###### Site Difficulty: Medium / Perceived difficulty: Easy
 Given a string s, find the length of the longest substring without repeating characters.
 #### Personal notes:
 Easy problem, simple solution.
