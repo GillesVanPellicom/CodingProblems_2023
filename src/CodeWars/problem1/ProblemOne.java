@@ -7,6 +7,8 @@ public class ProblemOne {
     public static long breakChocolate(long n, long m) {
         // n-1 breaks for n long chocolate to break into strips
         // m-1 breaks per strip so n times m-1
-        return (n-1)+n*(m-1);
+        // Formula is (n-1)+n*(m-1)
+        // Simplified: nm-1
+        return m*n+1;
     }
 }
