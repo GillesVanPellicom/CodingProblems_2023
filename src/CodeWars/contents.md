@@ -1,6 +1,6 @@
 # Table of contents - Codewars problems
 ### Codewars difficulty explanation.
-Codewars uses a japanese martial arts style difficulty system where 8kyu is easiest and 1kyu hardest.
+Codewars uses a japanese-style difficulty system where 8 kyu is easiest and 1 kyu concidered hardest.
 | **Kyu** | **Difficulty**   |
 |---------|------------------|
 | Kyu 8   | Trivial          |
