@@ -15,9 +15,9 @@ public class ProblemThree_v2 {
     }
 
     /***
-     * Binary tree sort
-     * @param n
-     * @return
+     * Binary tree sort by level in preorder traversal.
+     * @param n root node
+     * @return List<Integer> node values sorted by level (Preorder)
      */
     public static List<Integer> treeByLevels(Node n) {
 
