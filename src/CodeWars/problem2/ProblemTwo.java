@@ -28,16 +28,16 @@ public class ProblemTwo {
             } else if (n - 900 >= 0) {
                 n -= 900;
                 result.append("CM");
-            }else if (n - 500 >= 0) {
+            } else if (n - 500 >= 0) {
                 n -= 500;
                 result.append("D");
             } else if (n - 400 >= 0) {
                 n -= 400;
                 result.append("CD");
-            }else if (n - 100 >= 0) {
+            } else if (n - 100 >= 0) {
                 n -= 100;
                 result.append("C");
-            }else if (n - 90 >= 0) {
+            } else if (n - 90 >= 0) {
                 n -= 90;
                 result.append("XC");
             } else if (n - 50 >= 0) {
@@ -49,16 +49,16 @@ public class ProblemTwo {
             } else if (n - 10 >= 0) {
                 n -= 10;
                 result.append("X");
-            }else if (n - 9 >= 0) {
+            } else if (n - 9 >= 0) {
                 n -= 9;
                 result.append("IX");
-            }else if (n - 5 >= 0) {
+            } else if (n - 5 >= 0) {
                 n -= 5;
                 result.append("V");
             } else if (n - 4 >= 0) {
                 n -= 4;
                 result.append("IV");
-            }else if (n - 1 >= 0) {
+            } else if (n - 1 >= 0) {
                 n -= 1;
                 result.append("I");
             } else {

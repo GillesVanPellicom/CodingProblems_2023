@@ -7,14 +7,11 @@ import java.util.List;
 public class ProblemFive {
     public static void main(String[] args) {
         ProblemFive pf = new ProblemFive();
-        pf.charsInUse.add('H');
-        pf.charsInUse.add('F');
 
-        List<Character> res = pf.possibleMoves('E');
+        System.out.println(pf.calculateCombinations('E', 3));
         System.out.println("Wooo");
     }
 
-    public List<Character> charsInUse = new ArrayList<>();
     public char[] allChars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
 
     public int calculateCombinations(char startPosition, int patternLength) {
@@ -22,9 +19,11 @@ public class ProblemFive {
             return 0;
         } else if (patternLength == 1) {
             return 1;
+        } else if (patternLength > 8) {
+            return 0;
         }
 
-        calculateCombinationsRecursive(startPosition, 0, patternLength, null);
+        calculateCombinationsRecursive(startPosition, 0, patternLength-1, null);
         return totalPaths;
     }
 
@@ -38,7 +37,10 @@ public class ProblemFive {
         for (int i = 0; i < possible.size(); i++) {
             List<Character> newCharsInUse = new ArrayList<>(charsInUse);
             newCharsInUse.add(possible.get(i));
-            calculateCombinationsRecursive(possible.get(i, currentDepth+1, max, new ArrayList<>()));
+            if (currentDepth <= max) {
+                calculateCombinationsRecursive(possible.get(i), currentDepth+1, max, newCharsInUse);
+
+            }
         }
 
         if (currentDepth == max) {
