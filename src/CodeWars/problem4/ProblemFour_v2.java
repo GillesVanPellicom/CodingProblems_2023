@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 
 public class ProblemFour_v2 {
     public static void main(String[] args) {
-        System.out.println(fib(BigInteger.valueOf(2)));
+        System.out.println(fib(BigInteger.valueOf(200000)));
     }
     public static BigInteger fib(BigInteger nn) {
         int n = nn.intValue();
