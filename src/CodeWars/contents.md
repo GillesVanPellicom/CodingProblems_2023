@@ -56,7 +56,7 @@ I tried optimizing the algorithm by adding if-cases to use more efficient algori
 For my second attempt I first went trough some literature on the topic and I came across the formula $F(n)=\frac{\phi^n−\psi^n}{5}$, where $\phi = Golden Ratio$ and $\psi = \frac{1-\sqrt{5}}{2}$.
 This formula calculates F(n) by making use of the properties of the golden ratio and its conjugate. Since there is no iteration, recursion or looping of any kind in this formula, the time complexity should be $O(1)$, so I gave it a try.
 Unfortunately java isn't a scientific language and I had quite some trouble finding a good square root algorithm which works with BigIntegers among other issues. (I eventually landed on Newton's method)
-The main issue with this implementing this formula is that it makes use of decimals, meaning I have to work with doubles. Since the IEEE 754 standard isn't at all precise this solution also does not work in this case since absolute precision is a requirement.
+The main issue with implementing this formula is that it makes use of decimals, meaning I have to work with doubles. Since the IEEE 754 standard isn't at all precise this solution also does not work in this case since absolute precision is a requirement.
 
 For attempt three I went trough some more literature and I stumbled upon a matrix exponentiation approach. With a time complexity of $O(\log{n})$ I thought it was worth a try.
 Since it was quite some time since I last worked with matrices, I made this version more elaborate then it needed to be in order to re-familiarize myself with matrices.
