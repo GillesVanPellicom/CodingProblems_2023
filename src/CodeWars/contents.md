@@ -16,7 +16,7 @@ Codewars uses a japanese-style difficulty system where 8 kyu is easiest and 1 ky
 ###### Site Difficulty: 7 kyu / Perceived difficulty: Trivial
 Your task is to split the chocolate bar of given dimension n x m into small squares. Each square is of size 1x1 and unbreakable. Implement a function that will return minimum number of breaks needed.
 #### Personal notes:
-All you have to do is create/guess the formula and return it.
+All you have to do is guess the formula and return it.
 
 ### 2) Roman Numerals Helper
 ###### Site Difficulty: 4 kyu / Perceived difficulty: Medium
