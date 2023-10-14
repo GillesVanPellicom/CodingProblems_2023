@@ -59,7 +59,7 @@ Unfortunately java isn't a scientific language and I had quite some trouble find
 The main issue with implementing this formula is that it makes use of decimals, meaning I have to work with doubles. Since the IEEE 754 standard isn't at all precise this solution also does not work in this case since absolute precision is a requirement.
 
 For attempt three I went trough some more literature and I stumbled upon a matrix exponentiation approach. With a time complexity of $O(\log{n})$ I thought it was worth a try.
-Since it was quite some time since I last worked with matrices, I made this version more elaborate then it needed to be in order to re-familiarize myself with matrices.
+Since it was quite some time ago since I last worked with matrices, I made this version more elaborate then it needed to be in order to re-familiarize myself with matrices.
 There was a large improvement in runtime compared to v2 but since this version was very unoptimized, it still didn't manage to calculate $F(2000000)$ within the given time constraints.
 
 In attempt four all I had to do was simply optimize v3 and I'd be done, barring any unforeseen bugs. "Premature optimization is the root of all evil" and all that. 
