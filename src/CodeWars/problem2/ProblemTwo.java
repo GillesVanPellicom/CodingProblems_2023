@@ -100,6 +100,7 @@ public class ProblemTwo {
 
     /***
      * Takes a single roman numeral and turns it into it's arabic equivalent (E.g V -> 5)
+     * (this probably should have been a hashmap)
      * @param c char to be turned into arabic numeral.
      * @return arabic numeral.
      * @throws IllegalArgumentException If a letter not used in roman numerals is inputted.
