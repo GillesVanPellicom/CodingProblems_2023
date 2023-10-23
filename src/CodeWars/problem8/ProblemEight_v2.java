@@ -1,4 +1,5 @@
-package CodeWars.Problem8;
+package CodeWars.problem8;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -14,6 +15,7 @@ public class ProblemEight_v2 {
 
         System.out.println(triangle(t1));
     }
+
     public static char triangle(final String inputRow) {
 
         char[] row = inputRow.toCharArray();

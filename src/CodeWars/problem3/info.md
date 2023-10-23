@@ -21,3 +21,5 @@ Should return following list:
 Should return following list:
 
 [1,8,4,3,5,7]
+### Personal notes
+See src/CodeWars/contents.md
