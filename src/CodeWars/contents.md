@@ -42,19 +42,19 @@ Since recursion was essential for the approach I was trying, eventually I starte
 
 ### 4) The Millionth Fibonacci Kata
 ###### Site Difficulty: 3 kyu / Perceived difficulty: Hard
-In this kata you will have to calculate ```fib(n)```.
-Write an algorithm that can handle ```n``` up to ```2000000```.
+In this kata you will have to calculate $fib(n)$.
+Write an algorithm that can handle $n$ up to $2000000$
 Your algorithm must output the exact integer answer, to full precision.
 Also, it must correctly handle negative numbers as input.
 ### Personal notes:
-First I had to figure out how to store F(2000000), since that number is way above the java integer limit.
+First I had to figure out how to store $F(2000000)$, since that number is way above the java integer limit.
 After about 20 minutes of testing I felt confident enough about using BigInteger.
 
 My first approach was a naive iterative one. Obviously this has an exponential time complexity of $O(2^n)$ so this was outside the given time constraints.
 I tried optimizing the algorithm by adding if-cases to use more efficient algorithms when BigInts aren't required, but the time gains, although significant, were not nearly enough.
 
 For my second attempt I first went trough some literature on the topic and I came across the formula $F(n)=\frac{\phi^n−\psi^n}{5}$, where $\phi = Golden Ratio$ and $\psi = \frac{1-\sqrt{5}}{2}$.
-This formula calculates F(n) by making use of the properties of the golden ratio and its conjugate. Since there is no iteration, recursion or looping of any kind in this formula, the time complexity should be $O(1)$, so I gave it a try.
+This formula calculates $F(n)$ by making use of the properties of the golden ratio and its conjugate. Since there is no iteration, recursion or looping of any kind in this formula, the time complexity should be $O(1)$, so I gave it a try.
 Unfortunately java isn't a scientific language and I had quite some trouble finding a good square root algorithm which works with BigIntegers among other issues. (I eventually landed on Newton's method)
 The main issue with implementing this formula is that it makes use of decimals, meaning I have to work with doubles. Since the IEEE 754 standard isn't at all precise this solution also does not work in this case since absolute precision is a requirement.
 
