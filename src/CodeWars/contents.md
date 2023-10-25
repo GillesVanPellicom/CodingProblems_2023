@@ -88,7 +88,7 @@ In POSTFIX this would be ```a b +```. Now what if we introduce a unary operator 
 
 My first instinct was to minimize any inputs before it gets to the tokenizer. E.g. ```4 + (-3)``` becomes ```4 - 3```. After some trial and error I managed to get, I'd like to say, 20% success rates. The reason this is concidered a non-trivial issue in the first place is because it's hard to work with INFIX notation. Needless to say I promptly scrapped that idea.
 
-After more time than I'd like to admit I figured out I could just check in the tokenizer that if the minus operator succeeds another operator, then it's a unary operator and I could just give it a different character as token to distinguis itself from the binary minus operator.
+After more time than I'd like to admit I figured out I could just check in the tokenizer if the minus operator succeeds another operator. If it does then it's a unary operator and I could just give it a different character as token to distinguish itself from the binary minus operator.
 
 When trying to implement this I came to the conclusion that my code was not at all clean or modular enough to continue working on and that it was better to scrap some functions and start over with my freshly acquired knowledge.
 
