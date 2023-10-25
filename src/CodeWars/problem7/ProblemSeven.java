@@ -7,14 +7,24 @@ import java.util.regex.Pattern;
 public class ProblemSeven {
     public static void main(String[] args) {
         ProblemSeven p = new ProblemSeven();
-//        System.out.println(p.operate(Type.MUL, "0.5", "10"));
-        List<Lexeme> infixLexemes = p.lexer("5+((6/2)/3*12)^2+3");
-        p.postfixEvaluator(p.shuntingYard(infixLexemes));
+        System.out.println(p.calculate("(2 / (2 + 3.33) * 4)--6"));
     }
 
+    /**
+     * Calculate mathematical expression
+     * @param expression Expression to be calculated.
+     * @return Result as double.
+     */
+    public double calculate(String expression) {
+        return this.postfixEvaluator(this.shuntingYard(this.lexer(expression)));
+    }
 
+    // Lexeme type to regex string
     private Map<Type, String> tokenDefinitions = new HashMap<>();
 
+    /**
+     * Lexeme types
+     */
     enum Type {
         // "[0-9]+(\.[0-9]+)?" E.g. 12, 3.14, 9999
         NUMBER,
@@ -37,8 +47,12 @@ public class ProblemSeven {
 
     }
 
-
-
+    /**
+     * Splits up expression string into Lexemes.
+     * Lex = <type, value>
+     * @param input Expression string.
+     * @return Lexemes as list
+     */
     public List<Lexeme> lexer(String input) {
         // If this is first lexer() call, initialize lexer rules
         if (tokenDefinitions.isEmpty()) {
@@ -48,6 +62,7 @@ public class ProblemSeven {
         // Divide string into tokens
         Pattern pattern = Pattern.compile("([0-9]+(\\.[0-9]+)?)|[-+*/()^]");
         Matcher matcher = pattern.matcher(input);
+
         List<String> tokens = new ArrayList<>();
 
         while (matcher.find()) {
@@ -85,8 +100,11 @@ public class ProblemSeven {
         for (int i = 1; i < lexemes.size(); i++) {
             // If previous lexeme is an operator and current lexeme is a MIN operator
             if (isOperator(lexemes.get(i-1).type) && lexemes.get(i).type == Type.MIN) {
-                // Unary
-                lexemes.get(i).type = Type.UMIN;
+                // If operator is right bracket then operator is binary
+                if (lexemes.get(i-1).type != Type.RBRAC) {
+                    // Unary
+                    lexemes.get(i).type = Type.UMIN;
+                }
             }
         }
 
@@ -217,26 +235,52 @@ public class ProblemSeven {
         };
     }
 
+    /**
+     * Evaluates an expression formatted as postfix lexemes.
+     * @param postfixLexemes List of postfix lexemes as input
+     * @return Result as double.
+     */
     double postfixEvaluator(List<Lexeme> postfixLexemes) {
         Stack<Lexeme> evalStack = new Stack<>();
 
+        // For all lexemes, left to right
         for (int i = 0; i < postfixLexemes.size(); i++) {
             Lexeme curr = postfixLexemes.get(i);
 
+            // If current lexeme is a number
             if (curr.type == Type.NUMBER) {
+                // Push to stack
                 evalStack.push(curr);
                 continue;
             }
 
+            // If current lexeme is an operator
             if (isOperator(curr.type)) {
+                // And the operator is a unary minus
+                if (curr.type == Type.UMIN) {
+                    // Switch signum for number at top of stack
+                    evalStack.push(new Lexeme(Type.NUMBER, -evalStack.pop().value));
+                    continue;
+                }
+
+                // Else pop a and b from stack. Minding the order of operations and naming.
                 double b = evalStack.pop().value;
                 double a = evalStack.pop().value;
+                // Push result of operation to stack
                 evalStack.push(operate(curr.type, a, b));
             }
         }
+        // Return final element on stack as result.
         return evalStack.pop().value;
     }
 
+    /**
+     * Applies correct operation by enum type.
+     * @param operator Type of operation. Enum.
+     * @param operandA Operand a, double.
+     * @param operandB Operand b, double.
+     * @return Result as Lexeme.
+     */
     Lexeme operate(Type operator, double operandA, double operandB) {
 
         switch (operator) {
@@ -266,6 +310,9 @@ public class ProblemSeven {
     }
 }
 
+/**
+ * Lexeme object.
+ */
 class Lexeme {
     ProblemSeven.Type type;
     double value = -1;

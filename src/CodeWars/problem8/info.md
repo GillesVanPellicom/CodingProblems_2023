@@ -1,4 +1,4 @@
-# Insane Coloured Triangles
+# [Insane Coloured Triangles](https://www.codewars.com/kata/5a331ea7ee1aae8f24000175)
 ###### Site Difficulty: 2 kyu / Perceived difficulty: Hard
 
 A coloured triangle is created from a row of colours, 

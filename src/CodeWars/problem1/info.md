@@ -1,4 +1,4 @@
-# Breaking chocolate problem
+# [Breaking chocolate problem](https://www.codewars.com/kata/534ea96ebb17181947000ada)
 ###### Site Difficulty: 7 kyu / Perceived difficulty: Trivial
 Your task is to split the chocolate bar of given dimension n x m into small squares. Each square is of size 1x1 and unbreakable. Implement a function that will return minimum number of breaks needed.
 
