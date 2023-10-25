@@ -66,6 +66,12 @@ There was a large improvement in runtime compared to v2 but since this version w
 In attempt four all I had to do was simply optimize v3 and I'd be done, barring any unforeseen bugs. "Premature optimization is the root of all evil" and all that. 
 This version passed the unit tests with flying colors, first time.
 
+### [6) Strip Comments](https://www.codewars.com/kata/51c8e37cee245da6b40000bd/java)
+###### Site Difficulty: 4 kyu / Perceived difficulty: Medium
+Complete the solution so that it strips all text that follows any of a set of comment markers passed in. Any whitespace at the end of the line should also be stripped out.
+### Personal notes:
+Simply follow the instructions given and pay special attention to possible edge-cases. If not for the annoying edge-cases this would be easy.
+
 ### [7) Evaluate mathematical expression](https://www.codewars.com/kata/52a78825cdfc2cfc87000005/java)
 ##### Site Difficulty: 2 kyu / Perceived difficulty: Hard
 Given a mathematical expression as a string you must return the result as a number.

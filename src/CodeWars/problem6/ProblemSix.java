@@ -1,8 +1,5 @@
 package CodeWars.problem6;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ProblemSix {
 
@@ -12,58 +9,45 @@ public class ProblemSix {
         System.out.println(result);
 
     }
+
+    /**
+     * Strips out all comments, defined by commentSymbols, and remove trailing whitespace.
+     * @param text
+     * @param commentSymbols
+     * @return
+     */
     public static String stripComments(String text, String[] commentSymbols) {
-        List<String> list = new ArrayList<String>(Arrays.asList(text.split("\n")));
-        List<String> res = new ArrayList<String>();
-        // For all lines
-        for (int i = 0; i < list.size(); i++) {
-            boolean foundComment = false;
-            // For current string
-            for (int j = 0; j < list.get(i).length(); j++) {
-                boolean doneWithLine = false;
-                String curr = String.valueOf(list.get(i).charAt(j));
+        // Split input at newline
+        String[] lines = text.split("\n");
 
-                // Check current symbol against all commentSymbols
-                for (int k = 0; k < commentSymbols.length; k++) {
-                    if (curr.equals(commentSymbols[k])) {
-                        // Comment
-                        res.add(list.get(i).substring(0, j));
-                        doneWithLine = true;
-                        foundComment = true;
-                        break;
-                    }
+        // For every line
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i];
 
-                }
-                if (doneWithLine) {
-                    break;
+            // If the string contains spaces only, return empty line
+            if (line.matches("^\\s*$")) {
+                lines[i] = "";
+                continue;
+            }
+
+            // Look for every defined marker and substring that part out.
+            for (String marker : commentSymbols) {
+                int index = line.indexOf(marker);
+                if (index >= 0) {
+                    line = line.substring(0, index);
                 }
             }
-            if (!foundComment) {
-                res.add(list.get(i));
 
+            // Remove trailing whitespace
+            int firstNonSpaceIndex = 0;
+            while (firstNonSpaceIndex < line.length() && line.charAt(firstNonSpaceIndex) == ' ') {
+                firstNonSpaceIndex++;
             }
+
+            lines[i] = line.substring(0, firstNonSpaceIndex) + line.substring(firstNonSpaceIndex).trim();
+
         }
 
-        res = stripSpaces(res);
-
-        StringBuilder resString = new StringBuilder();
-
-        for (int i = 0; i < res.size(); i++) {
-            resString.append(res.get(i)).append("\n");
-        }
-        return resString.toString();
+        return String.join("\n", lines);
     }
-
-    static List<String> stripSpaces(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
-            String currentLine = list.get(i);
-            int stringLen = currentLine.length();
-            String lastSymbol = currentLine.substring(stringLen-1, stringLen);
-            if (lastSymbol.equals(" ")) {
-                list.set(i, currentLine.substring(0, stringLen-1));
-            }
-        }
-        return list;
-    }
-
 }

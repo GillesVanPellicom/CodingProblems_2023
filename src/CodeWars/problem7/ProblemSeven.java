@@ -94,6 +94,7 @@ public class ProblemSeven {
         // Mark unary operators
         // If first lexeme is MIN
         if (lexemes.get(0).type == Type.MIN) {
+            // Unary
             lexemes.get(0).type = Type.UMIN;
         }
 
