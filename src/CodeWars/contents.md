@@ -73,7 +73,7 @@ Complete the solution so that it strips all text that follows any of a set of co
 Simply follow the instructions given and pay special attention to possible edge-cases. If not for the annoying edge-cases this would be easy.
 
 ### [7) Evaluate mathematical expression](https://www.codewars.com/kata/52a78825cdfc2cfc87000005/java)
-##### Site Difficulty: 2 kyu / Perceived difficulty: Hard
+###### Site Difficulty: 2 kyu / Perceived difficulty: Hard
 Given a mathematical expression as a string you must return the result as a number.
 ### Personal notes:
 This at first sight deceptively simple problem had me thinking for a bit. The bracket depth is the biggest obstacle to overcome. I thought about simply using a stack of some sorts to keep track of the brackets, but this would only work if I wanted to know if all brackets are closed. I could probably pour the expression into a tree and then use some implementation of [DFS](https://en.wikipedia.org/wiki/Depth-first_search), but then I remembered I like to avoid trees whenever I can since they are annoying to debug. 
