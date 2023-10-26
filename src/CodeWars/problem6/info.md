@@ -22,4 +22,4 @@ var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["
 // result should == "apples, pears\ngrapes\nbananas"
 ```
 ### Personal notes
-See src/CodeWars/contents.md
+Simply follow the instructions given and pay special attention to possible edge-cases. If not for the annoying edge-cases this would be easy.

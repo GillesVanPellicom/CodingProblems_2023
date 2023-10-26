@@ -21,5 +21,12 @@ Should return following list:
 Should return following list:
 
 [1,8,4,3,5,7]
-### Personal notes
-See src/CodeWars/contents.md
+### Personal notes:
+The concept is easy: write a by-level traversal algorithm for a binary tree. 
+For anyone who has ever taken a datastructures course, binary trees and traversal are the first topics.
+
+I never got my first version to fully pass. My logic was sound since my second version is based on the same logic and that one does works.
+The problem was that the unit tests, not public to me, were showing undefined behavior in some cases that caused the program to hallucinate levels and all values to be totally random each runtime.
+I never managed to replicate the behavior codewars' test suites were uncovering but I managed to narrow the problem down to the recursive stage.
+
+Since recursion was essential for the approach I was trying, eventually I started over, this time using no recursion but a queue. Exactly the same high-level design. It worked first time.

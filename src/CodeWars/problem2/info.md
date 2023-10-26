@@ -10,5 +10,6 @@ In Roman numerals 1990 is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC. 2
 In this kata 4 should be represented as IV, NOT as IIII (the "watchmaker's four").
 ### Constraints
 - Input range : 1 <= n < 4000
-### Personal notes
-See src/CodeWars/contents.md
+### Personal notes:
+The difficulty is in pouring a set of steps already internally understood into a formal algorithm.
+After a bit of trial and error I came up with a backwards-subtractive and an iterative approach.
