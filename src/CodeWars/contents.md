@@ -31,7 +31,7 @@ In the folder for that problem you will find a file named ```info.md```. This fi
 ### [4) The Millionth Fibonacci Kata](https://github.com/GillesVanPellicom/CodingProblems_2023/tree/master/src/CodeWars/problem4)
 ###### Site Difficulty: 3 kyu / Perceived difficulty: Hard
 
-### [6) Strip Comments](https://github.com/GillesVanPellicom/CodingProblems_2023/tree/master/src/CodeWars/problem6)
+### [6) Strip Comments](https://www.codewars.com/kata/51c8e37cee245da6b40000bd/java)
 ###### Site Difficulty: 4 kyu / Perceived difficulty: Medium
 
 ### [7) Evaluate mathematical expression](https://github.com/GillesVanPellicom/CodingProblems_2023/tree/master/src/CodeWars/problem7)
