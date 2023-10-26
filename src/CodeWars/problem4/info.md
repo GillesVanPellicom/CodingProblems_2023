@@ -13,7 +13,7 @@ Your algorithm must output the exact integer answer, to full precision.
 Also, it must correctly handle negative numbers as input.
 
 HINT I: Can you rearrange the equation``` fib(n + 2) = fib(n + 1) + fib(n)``` to find ```fib(n)``` if you already know ```fib(n + 1)``` and ```fib(n + 2)```? Use this to reason what value ```fib``` has to have for negative values.
-### Personal notes:
+## Personal notes:
 First I had to figure out how to store $F(2000000)$, since that number is way above the java integer limit.
 After about 20 minutes of testing I felt confident enough about using BigInteger.
 
