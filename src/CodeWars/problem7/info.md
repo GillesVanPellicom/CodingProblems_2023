@@ -44,7 +44,7 @@ You do not need to worry about validation - you will only receive **valid** math
 
 ### Restricted APIs
 **NOTE**: To keep up the difficulty of the kata, use of some classes and functions is disallowed. Their names cannot appear in the solution file, even in comments and variable names.
-### Personal notes:
+## Personal notes:
 This at first sight deceptively simple problem had me thinking for a bit. The bracket depth is the biggest obstacle to overcome. I thought about simply using a stack of some sorts to keep track of the brackets, but this would only work if I wanted to know if all brackets are closed. I could probably pour the expression into a tree and then use some implementation of [DFS](https://en.wikipedia.org/wiki/Depth-first_search), but then I remembered I like to avoid trees whenever I can since they are annoying to debug. 
 
 After a while I remembered [POSTFIX](https://en.wikipedia.org/wiki/Reverse_Polish_notation) notation could be used by a computer to easily evaluate an expression since brackets don't exist in POSTFIX. This makes the expression linear and linear things are simple to work with.

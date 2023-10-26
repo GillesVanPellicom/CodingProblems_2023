@@ -49,6 +49,6 @@ Kata.triangle("RGBG") == 'B'
 Kata.triangle("RBRGBRB") == 'G'
 Kata.triangle("RBRGBRBGGRRRBGBBBGG") == 'G'
 ```
-### Personal notes:
+## Personal notes:
 For my first version I went with a simple recursive approach. Whenever there is a fully constructed row, the $calculateRow()$ function gets called to calculate the next row.
 It does so using the placement rules defined in $getColor()$. This approach has a quadratic time complexity $O(n^2)$, so it went outside of the time constraints for the large test suites $10000 <= length(row) <= 100000$.

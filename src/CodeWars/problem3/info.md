@@ -21,7 +21,7 @@ Should return following list:
 Should return following list:
 
 [1,8,4,3,5,7]
-### Personal notes:
+## Personal notes:
 The concept is easy: write a by-level traversal algorithm for a binary tree. 
 For anyone who has ever taken a datastructures course, binary trees and traversal are the first topics.
 
