@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class ProblemSeven {
     public static void main(String[] args) {
         ProblemSeven p = new ProblemSeven();
-        System.out.println(p.calculate("(2 / (2 + 3.33) * 4)--6"));
+        System.out.println(p.calculate("(2 / (2 + ((3.33)))^2 * 4)--6"));
     }
 
     /**
