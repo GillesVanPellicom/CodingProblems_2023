@@ -7,7 +7,11 @@ import java.util.regex.Pattern;
 public class ProblemSeven {
     public static void main(String[] args) {
         ProblemSeven p = new ProblemSeven();
-        System.out.println(p.calculate("(2 / (2 + ((3.33)))^2 * 4)--6"));
+        System.out.println(p.calculate("(123.45*(678.90 " +
+                "/ (-2.5+ 11.5)-(((80 -(19))) *33.25)) " +
+                "/ 20) - (123.45*(678.90 " +
+                "/ (-2.5+ 11.5)-(((80 -(19))) *33.25)) " +
+                "/ 20) + (13 - 2)/ -(-11)"));
     }
 
     /**
@@ -69,12 +73,10 @@ public class ProblemSeven {
             tokens.add(matcher.group());
         }
 
-        // Process tokens into lexemes
+        // Turn tokens into lexemes
         List<Lexeme> lexemes = new ArrayList<>();
 
-        for (int i = 0; i < tokens.size(); i++) {
-            String curr = tokens.get(i);
-
+        for (String curr : tokens) {
             for (Type t : tokenDefinitions.keySet()) {
                 String regex = tokenDefinitions.get(t);
                 pattern = Pattern.compile(regex);
@@ -245,9 +247,7 @@ public class ProblemSeven {
         Stack<Lexeme> evalStack = new Stack<>();
 
         // For all lexemes, left to right
-        for (int i = 0; i < postfixLexemes.size(); i++) {
-            Lexeme curr = postfixLexemes.get(i);
-
+        for (Lexeme curr : postfixLexemes) {
             // If current lexeme is a number
             if (curr.type == Type.NUMBER) {
                 // Push to stack
