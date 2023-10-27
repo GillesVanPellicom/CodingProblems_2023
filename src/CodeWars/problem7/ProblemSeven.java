@@ -24,12 +24,12 @@ public class ProblemSeven {
     }
 
     // Lexeme type to regex string
-    private Map<Type, String> tokenDefinitions = new HashMap<>();
+    private final Map<Type, String> tokenDefinitions = new HashMap<>();
 
     /**
      * Lexeme types
      */
-    enum Type {
+    public enum Type {
         // "[0-9]+(\.[0-9]+)?" E.g. 12, 3.14, 9999
         NUMBER,
         // "+" E.g. a + b
@@ -52,12 +52,27 @@ public class ProblemSeven {
     }
 
     /**
+     * Define token definitions.
+     * Lexer calls this method once if no token definitions are defined.
+     */
+    private void initLexer() {
+        this.addTokenDefinition("([0-9]+(\\.[0-9]+)?)", Type.NUMBER);
+        this.addTokenDefinition("\\+", Type.PLUS);
+        this.addTokenDefinition("\\-", Type.MIN);
+        this.addTokenDefinition("\\*", Type.MUL);
+        this.addTokenDefinition("\\/", Type.DIV);
+        this.addTokenDefinition("\\^", Type.POW);
+        this.addTokenDefinition("\\(", Type.LBRAC);
+        this.addTokenDefinition("\\)", Type.RBRAC);
+    }
+
+    /**
      * Splits up expression string into Lexemes.
      * Lex = <type, value>
      * @param input Expression string.
      * @return Lexemes as list
      */
-    public List<Lexeme> lexer(String input) {
+    private List<Lexeme> lexer(String input) {
         // If this is first lexer() call, initialize lexer rules
         if (tokenDefinitions.isEmpty()) {
             initLexer();
@@ -110,7 +125,6 @@ public class ProblemSeven {
                 }
             }
         }
-
         return lexemes;
     }
 
@@ -119,24 +133,8 @@ public class ProblemSeven {
      * @param type Type to be checked
      * @return True if operator
      */
-    public boolean isOperator(Type type) {
+    private boolean isOperator(Type type) {
         return type != Type.NUMBER;
-    }
-
-    /**
-     * Define token definitions.
-     * Lexer calls this method once if no token definitions are defined.
-     */
-    private void initLexer() {
-        this.addTokenDefinition("([0-9]+(\\.[0-9]+)?)", Type.NUMBER);
-        this.addTokenDefinition("\\+", Type.PLUS);
-        this.addTokenDefinition("\\-", Type.MIN);
-        this.addTokenDefinition("\\*", Type.MUL);
-        this.addTokenDefinition("\\/", Type.DIV);
-        this.addTokenDefinition("\\^", Type.POW);
-        this.addTokenDefinition("\\(", Type.LBRAC);
-        this.addTokenDefinition("\\)", Type.RBRAC);
-
     }
 
     /**
@@ -154,7 +152,7 @@ public class ProblemSeven {
      * @param infixLexemes List of infix lexemes
      * @return List of postfix lexemes
      */
-    public List<Lexeme> shuntingYard(List<Lexeme> infixLexemes) {
+    private List<Lexeme> shuntingYard(List<Lexeme> infixLexemes) {
         List<Lexeme> output = new ArrayList<>();
         Stack<Lexeme> opStack = new Stack<>();
 
@@ -202,11 +200,8 @@ public class ProblemSeven {
         while (!opStack.empty()) {
             output.add(opStack.pop());
         }
-
-
         return output;
     }
-
 
     /**
      * Is operator left associative
@@ -220,8 +215,6 @@ public class ProblemSeven {
             default -> false;
         };
     }
-
-
 
     /**
      * What is the precedence for the current operator.
@@ -290,19 +283,15 @@ public class ProblemSeven {
             }
             case MIN -> {
                 return new Lexeme(Type.NUMBER, operandA - operandB);
-
             }
             case MUL -> {
                 return new Lexeme(Type.NUMBER, operandA * operandB);
-
             }
             case DIV -> {
                 return new Lexeme(Type.NUMBER, operandA / operandB);
-
             }
             case POW -> {
                 return new Lexeme(Type.NUMBER, Math.pow(operandA, operandB));
-
             }
             default -> {
                 return null;
