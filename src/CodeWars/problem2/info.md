@@ -13,5 +13,3 @@ In this kata 4 should be represented as IV, NOT as IIII (the "watchmaker's four"
 ## Personal notes:
 The difficulty is in pouring a set of steps already internally understood into a formal algorithm.
 After a bit of trial and error I came up with a [greedy](https://en.wikipedia.org/wiki/Greedy_algorithm) implementation for the decimal to roman function and an iterative approach for roman to decimal.
-
-I could optimize my solution a lot using for example [memoization]() but that's a problem for later.
