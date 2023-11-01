@@ -7,11 +7,7 @@ import java.util.regex.Pattern;
 public class ProblemSeven {
     public static void main(String[] args) {
         ProblemSeven p = new ProblemSeven();
-        System.out.println(p.calculate("(123.45*(678.90 " +
-                "/ (-2.5+ 11.5)-(((80 -(19))) *33.25)) " +
-                "/ 20) - (123.45*(678.90 " +
-                "/ (-2.5+ 11.5)-(((80 -(19))) *33.25)) " +
-                "/ 20) + (13 - 2)/ -(-11)"));
+        System.out.println(p.calculate("(-12t+43)^2"));
     }
 
     /**
